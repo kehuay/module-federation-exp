@@ -17,8 +17,8 @@ export default defineConfig({
     vue(),
     federation({
       name: 'remote',
-      manifest: true,
-      // filename: 'remoteEntry.js',
+      // manifest: true,
+      filename: 'remoteEntry.js',
       shared: {
         // 'vue-demi': {
         //   singleton: true,
