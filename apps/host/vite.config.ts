@@ -5,13 +5,22 @@ import { federation } from '@module-federation/vite'
 // https://vite.dev/config/
 export default defineConfig({
   optimizeDeps: {
-    exclude: ["vue-demi"]
+    // exclude: ["vue-demi"]
   },
   plugins: [
     vue(),
     federation({
       name: "host",
-      shared: ["vue-demi"]
+      filename: 'remoteEntry.json',
+      shared: {
+        "vue-demi": {
+          singleton: true
+        },
+        "vue": {
+          singleton: true
+        }
+      },
+      shareStrategy: 'loaded-first'
     })
   ],
   server: {

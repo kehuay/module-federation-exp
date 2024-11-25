@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { loadRemote } from "@module-federation/enhanced/runtime";
+import { defineAsyncComponent } from 'vue'
 
+const RemoteApp = defineAsyncComponent(() => loadRemote("remote/App"))
 </script>
 
 <template>
-
+  <div>Host</div>
+  <div>
+    <RemoteApp />
+  </div>
 </template>
 
 <style scoped>

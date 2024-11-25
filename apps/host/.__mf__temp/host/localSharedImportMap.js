@@ -3,23 +3,23 @@
 
     const importMap = {
       
-        "vue-demi": async () => {
-          let pkg = await import("__mf__virtual/host__prebuild__vue_mf_2_demi__prebuild__.js")
+        "vue": async () => {
+          let pkg = await import("__mf__virtual/host__prebuild__vue__prebuild__.js")
           return pkg
         }
       
     }
       const usedShared = {
       
-          "vue-demi": {
-            name: "vue-demi",
-            version: "0.14.10",
+          "vue": {
+            name: "vue",
+            version: "3.5.13",
             scope: ["default"],
             loaded: false,
             from: "host",
             async get () {
-              usedShared["vue-demi"].loaded = true
-              const {"vue-demi": pkgDynamicImport} = importMap 
+              usedShared["vue"].loaded = true
+              const {"vue": pkgDynamicImport} = importMap 
               const res = await pkgDynamicImport()
               const exportModule = {...res}
               // All npm packages pre-built by vite will be converted to esm
@@ -32,8 +32,8 @@
               }
             },
             shareConfig: {
-              singleton: false,
-              requiredVersion: "^0.14.10"
+              singleton: true,
+              requiredVersion: "^3.5.13"
             }
           }
         
