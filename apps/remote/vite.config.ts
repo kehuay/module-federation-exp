@@ -5,18 +5,24 @@ import { federation } from '@module-federation/vite'
 // https://vite.dev/config/
 export default defineConfig({
   optimizeDeps: {
-    // exclude: ["vue-demi"]
+    // exclude: ["vue-demi"],
+    include: ['faim > qrcode', 'faim > sweetalert2', 'faim > upng-js'],
+  },
+  resolve: {
+    alias: {
+      "vue-demi": "vue-demi/lib/index.cjs"
+    }
   },
   plugins: [
     vue(),
     federation({
       name: 'remote',
-      // manifest: true,
-      filename: 'remoteEntry.js',
+      manifest: true,
+      // filename: 'remoteEntry.js',
       shared: {
-        'vue-demi': {
-          singleton: true,
-        },
+        // 'vue-demi': {
+        //   singleton: true,
+        // },
         'vue': {
           singleton: true
         }

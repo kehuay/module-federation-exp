@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import { init } from '@module-federation/enhanced/runtime'
+import { createPinia } from 'pinia'
 
 init({
     name: 'host',
@@ -15,4 +16,6 @@ init({
     ]
 })
 
-createApp(App).mount('#app')
+const piniaApp = createPinia()
+
+createApp(App).use(piniaApp).mount('#app')

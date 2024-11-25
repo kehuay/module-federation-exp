@@ -7,15 +7,20 @@ export default defineConfig({
   optimizeDeps: {
     // exclude: ["vue-demi"]
   },
+  resolve: {
+    alias: {
+      "vue-demi": "vue-demi/lib/index.cjs"
+    }
+  },
   plugins: [
     vue(),
     federation({
       name: "host",
       filename: 'remoteEntry.json',
       shared: {
-        "vue-demi": {
-          singleton: true
-        },
+        // "vue-demi": {
+        //   singleton: true
+        // },
         "vue": {
           singleton: true
         }

@@ -8,6 +8,8 @@ const count = ref(0)
   <div>
     Remote {{ count }} <button @click="count++">+ Add one</button>
   </div>
+  <div>
+  </div>
 </template>
 
 <style scoped>
