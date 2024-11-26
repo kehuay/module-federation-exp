@@ -6,7 +6,7 @@ const RemoteApp = defineAsyncComponent(() => loadRemote("remote/App"))
 </script>
 
 <template>
-  <div>Host</div>
+  <div class="text-40px">Host</div>
   <div>
     <RemoteApp />
   </div>
