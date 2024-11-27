@@ -33,5 +33,12 @@ export default defineConfig({
   ],
   server: {
     port: 5000
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
 })

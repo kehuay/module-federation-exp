@@ -1,32 +1,22 @@
 <script setup lang="ts">
-// import 'virtual:uno.css'
-import { reactive, ref } from 'vue-demi'
-import { ElTreeSelect, ElFormItem, ElDialog } from 'element-plus'
-// import 'element-plus/dist/index.css'
-// import { FaFormDialog } from 'faim'
+import { ref, version } from 'vue'
 const count = ref(0)
-const isOpen = ref(false)
-const form = reactive({
-  option: ''
-})
+
 </script>
 
 <template>
-  <div class="">
-    <div class="text-30px">
-      Remote {{ count }} <button @click="count++">+ Add one</button>
+  <div class="text-40px shadow-2xl mt-40px">
+    <div>Remote</div>
+    <div>Remote vue: {{ version }}</div>
+    <div class="text-30px text-red">
+      Counter: {{ count }} <button @click="count++">+ Add one</button>
     </div>
-    <div>
-      <button @click="() => {
-        isOpen = true
-      }">Open Dialog</button>
+    <div class="text-30px text-red">
+      Counter(call $forceUpdate): {{ count }} <button @click="() => {
+        count++;
+        $forceUpdate()
+      }">+ Add one</button>
     </div>
-    <ElDialog title="表单" v-model="isOpen">
-      <div>{{ form }}</div>
-      <ElFormItem v-model="form.option">
-        <ElTreeSelect v-model="form.option" :data="[{ label: '第一项', value: 1 }]" />
-      </ElFormItem>
-    </ElDialog>
   </div>
   <div>
   </div>

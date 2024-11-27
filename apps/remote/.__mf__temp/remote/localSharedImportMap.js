@@ -44,7 +44,7 @@
         ,
           "vue": {
             name: "vue",
-            version: "3.5.13",
+            version: "3.4.38",
             scope: ["default"],
             loaded: false,
             from: "remote",
@@ -63,8 +63,8 @@
               }
             },
             shareConfig: {
-              singleton: true,
-              requiredVersion: "^3.5.13"
+              singleton: false,
+              requiredVersion: "~3.4.38"
             }
           }
         

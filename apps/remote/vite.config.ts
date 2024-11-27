@@ -20,7 +20,9 @@ export default defineConfig({
 
   },
   plugins: [
-    UnoCSS(),
+    UnoCSS({
+      mode: 'vue-scoped'
+    }),
     vue(),
     federation({
       name: 'remote',
@@ -31,9 +33,13 @@ export default defineConfig({
         //   singleton: true,
         // },
         'vue': {
-          singleton: true
+          singleton: false,
+          version: '3.4.38',
+          requiredVersion: '~3.4.38'
         },
-        'element-plus': {}
+        'element-plus': {
+
+        }
       },
       shareStrategy: 'loaded-first',
       exposes: {
@@ -42,7 +48,14 @@ export default defineConfig({
     })
   ],
   server: {
-    port: 5001,
-    origin: 'http://localhost:5001'
-  }
+    port: 6001,
+    origin: 'http://localhost:6001'
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
 })
