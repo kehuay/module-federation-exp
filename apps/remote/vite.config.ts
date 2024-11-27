@@ -5,10 +5,6 @@ import UnoCSS from 'unocss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  optimizeDeps: {
-    // exclude: ["vue-demi"],
-    include: ['faim > qrcode', 'faim > sweetalert2', 'faim > upng-js'],
-  },
   resolve: {
     alias: {
       "vue-demi": "vue-demi/lib/index.cjs"
@@ -27,19 +23,12 @@ export default defineConfig({
     federation({
       name: 'remote',
       manifest: true,
-      // filename: 'remoteEntry.js',
       shared: {
-        // 'vue-demi': {
-        //   singleton: true,
-        // },
         'vue': {
           singleton: false,
           version: '3.4.38',
           requiredVersion: '~3.4.38'
         },
-        'element-plus': {
-
-        }
       },
       shareStrategy: 'loaded-first',
       exposes: {

@@ -7,11 +7,6 @@
           let pkg = await import("__mf__virtual/host__prebuild__vue__prebuild__.js")
           return pkg
         }
-      ,
-        "element-plus": async () => {
-          let pkg = await import("__mf__virtual/host__prebuild__element_mf_2_plus__prebuild__.js")
-          return pkg
-        }
       
     }
       const usedShared = {
@@ -39,32 +34,6 @@
             shareConfig: {
               singleton: true,
               requiredVersion: "^3.5.13"
-            }
-          }
-        ,
-          "element-plus": {
-            name: "element-plus",
-            version: "2.8.8",
-            scope: ["default"],
-            loaded: false,
-            from: "host",
-            async get () {
-              usedShared["element-plus"].loaded = true
-              const {"element-plus": pkgDynamicImport} = importMap 
-              const res = await pkgDynamicImport()
-              const exportModule = {...res}
-              // All npm packages pre-built by vite will be converted to esm
-              Object.defineProperty(exportModule, "__esModule", {
-                value: true,
-                enumerable: false
-              })
-              return function () {
-                return exportModule
-              }
-            },
-            shareConfig: {
-              singleton: false,
-              requiredVersion: "^2.8.8"
             }
           }
         

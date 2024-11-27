@@ -20,9 +20,6 @@ export default defineConfig({
       name: "host",
       filename: 'remoteEntry.json',
       shared: {
-        // "vue-demi": {
-        //   singleton: true
-        // },
         "vue": {
           singleton: true
         },
